@@ -119,3 +119,6 @@ obj/
 *.draft.*
 *_backup.*
 .notes/
+
+# Christina's version control tracking
+.christina/

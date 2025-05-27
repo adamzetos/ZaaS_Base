@@ -1,0 +1,5 @@
+QType,Explanation
+BInc,Base + Incremental
+PAdd,Pure Additive
+Info,"Informational, not for quotation computing"
+PCFa,Project Complexity Factor: to adjust the level of complexity

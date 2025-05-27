@@ -1,0 +1,19 @@
+CaliCat,Feature,Why It's a Baseline,SA-h,PM-h,UX-h,FE-h,BE-h,iOS-h,Android-h,QA-h
+CAL-STAT,For Static website,,0,1,2,4,0,0,0,2
+CAL-AUTH,Email/Social Login + Profile,Appears in almost every project,0.2,2,4,4,8,4,4,4
+CAL-CRUD,Role-based Admin Dashboard,Admin portals everywhere,0.5,4,4,4,8,4,4,8
+CAL-PUSH,Real-time Notifications + Inbox,Needed for user engagement,0.2,2,2,4,4,4,4,4
+CAL-PAY,One-off + Subscription Payments,Monetisation common case,0.2,2,2,4,8,4,4,8
+CAL-SRCH,Advanced Search & Filter	,E-commerce / SaaS staple,0,1,2,4,8,4,4,4
+CAL-CMS,Headless CMS + multi-language editor,"Matches static, marketing sites & documentation portals",0.1,1,2,8,4,0,0,2
+CAL-INT,External API Integration + Webhook,"Covers payment alt-providers, CRM, KYC, shipping APIs",0.4,2,1,1,6,1,1,3
+CAL-DATA,One-off Data Import + Analytics Dashboard,Needed for reporting & legacy migrations,0.5,2,1,2,6,1,1,4
+CAL-AI,Simple Prompt-based Chatbot,SA-heavy AI flavour now common,4,2,0,2,4,2,2,4
+CAL-BIO,Biometric Quick Access (Face ID / Touch ID / WebAuthn),"Captures mobile-heavy, light-backend auth extensions",0.1,1,1,4,2,4,4,2
+CAL-TRACK,GA / GTM / App-Analytics instrumentation,"Covers "paste GA tag", add dataLayer calls, mobile SDK knit-in; no server work",0,1,0,2,0,2,2,1
+CAL-FRONT,All front end focus,,0.1,1,4,4,1,4,4,4
+CAL-BACK,All backend focus,,0.5,2,1,1,4,1,1,4
+CAL-BAL,Balanced among Front and Back,,0.5,4,4,4,4,4,4,4
+CAL-DO,DevOps,,0,1,0,0,4,0,0,2
+CAL-PM,PM focus,,1,4,0,0,0,0,0,0
+CAL-SA,System Analyst focus,,4,1,0,0,2,0,0,2

@@ -1,7 +1,8 @@
 # Zara_Quote_Prompt - Functional Quotation Template
 **Classification: ZETOS-CONFIDENTIAL ▲**  
 **Created: 2025-05-24**  
-**Version: 1.0**
+**Updated: 2025-05-28**  
+**Version: 2.0**
 
 ## 📋 Overview
 AI prompt template for System Analysts to transform technical Zack quotations into business-focused functional quotations. This template converts technical specifications into client-understandable business modules with clear value propositions.
@@ -18,10 +19,12 @@ You are an expert Business Analyst and Technical Writer at Zetos Development Stu
 IMPORTANT CONTEXT:
 - Zetos delivers enterprise-grade web and mobile applications
 - Clients care about business outcomes, not technical implementation details
-- All quotations must maintain exact cost parity with technical estimates
+- All quotations must maintain exact cost parity with Zack technical estimates
 - Features should be organized into logical business modules
 - Core/Mandatory vs Optional features must be clearly distinguished
 - Value propositions should focus on business benefits and ROI
+- Technical team includes 9 roles: SA, PM, UX, FE, BE, iOS, Android, QA, DevOps
+- All roles charged at €400/day (no buffer added)
 ```
 
 ### **Business Translation Framework**
@@ -352,6 +355,7 @@ Based on the technical quotations provided, here is the functional business quot
 - [ ] Optional module costs sum to difference between Zack Max and Min
 - [ ] All individual module costs are justified and traceable
 - [ ] No cost discrepancies between technical and functional quotations
+- [ ] €400/day rate maintained (no buffer added)
 
 ### **Business Logic Validation**
 - [ ] Modules represent logical business functions
@@ -370,6 +374,11 @@ Based on the technical quotations provided, here is the functional business quot
 - [ ] All sections are complete and coherent
 - [ ] Value propositions are compelling and specific
 - [ ] Next steps are clear and actionable
+
+### **Team Role Coverage**
+- [ ] All 9 roles represented where appropriate (SA, PM, UX, FE, BE, iOS, Android, QA, DevOps)
+- [ ] Role distribution makes sense for the project type
+- [ ] No roles artificially excluded or minimized
 
 ## 🔄 Continuous Improvement
 

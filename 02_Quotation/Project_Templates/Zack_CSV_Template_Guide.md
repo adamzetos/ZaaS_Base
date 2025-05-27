@@ -1,170 +1,204 @@
-# Zack CSV Template Guide - Google Form Response Format
+# Zack CSV Template Guide - Version 2.0
 **Classification: ZETOS-CONFIDENTIAL ▲**  
 **Created: 2025-05-24**  
-**Version: 1.0**
+**Updated: 2025-05-28**  
+**Version: 2.0**
 
 ## 📋 Overview
-This guide explains the Zack CSV template format that matches Google Forms response output. The CSV template enables System Analysts to prepare bulk quotations or import pre-analyzed requirements into the Zack quotation system.
+This guide explains the updated Zack CSV template format that uses the calibration-based methodology. The CSV template enables System Analysts to prepare bulk quotations using the 18 calibration categories (CAL-*) with accurate Project Complexity Factors (PCFa).
 
 ## 🎯 Purpose
 Provide a standardized CSV format that:
-- Matches Google Forms response structure exactly
-- Enables bulk quotation preparation
-- Facilitates AI-generated pre-filling of Zack forms
-- Maintains consistency with Zack's calibration methodology
+- Uses the 18 calibration categories from Zack methodology
+- Calculates hours based on baseline calibration table
+- Applies PCFa multipliers correctly
+- Converts hours to days using UP-ROUNDING (CEILING)
+- Maintains €400/day rate with NO buffer
 
 ## 📊 CSV Structure
 
 ### **Column Headers (Must Match Exactly)**
 ```csv
-Timestamp,Client Name,Project Name,System Analyst,1. User Management,2. Authentication & Authorization,3. Content Management,4. Notification System,5. Payment Integration,6. Analytics & Reporting,7. API Management,8. Multi-tenancy,9. Workflow Automation,10. Search & Discovery,11. File Management,12. Admin Dashboard,13. Data Export/Import,14. Email Integration,15. Localization,16. Security Features,17. Performance Optimization,18. Mobile Responsiveness,19. Third-party Integrations,20. Backup & Recovery,PCFa (Platform Complexity Factor),FeFa (Feature Factor),SA Man-days,PM Man-days,Designer Man-days,FE Man-days,BE Man-days,iOS Man-days,Android Man-days,QA Man-days,Total Man-days,Daily Rate (EUR),Total Cost (EUR),Notes
+Project,Client,Date,SA,Business_Sector,PCFa_Business,Collaboration_Type,PCFa_Collaboration,Service_Type,PCFa_Service,Total_PCFa,CAL-STAT,CAL-AUTH,CAL-CRUD,CAL-FORM,CAL-SEARCH,CAL-NOTIF,CAL-PAY,CAL-DASH,CAL-REPORT,CAL-API,CAL-FILE,CAL-CHAT,CAL-MAP,CAL-SOCIAL,CAL-MEDIA,CAL-ECOM,CAL-MULTI,CAL-ADMIN,SA_Hours,PM_Hours,UX_Hours,FE_Hours,BE_Hours,iOS_Hours,Android_Hours,QA_Hours,DevOps_Hours,Total_Hours,SA_Days,PM_Days,UX_Days,FE_Days,BE_Days,iOS_Days,Android_Days,QA_Days,DevOps_Days,Total_Days,Total_Cost_EUR
 ```
 
 ### **Field Definitions**
 
-#### **Administrative Fields**
-1. **Timestamp**: Google Form submission time (Format: "YYYY/M/D H:MM:SS")
-2. **Client Name**: Full company name
-3. **Project Name**: Descriptive project identifier
-4. **System Analyst**: SA name who prepared the quotation
+#### **Project Information (Columns A-D)**
+- **Project**: Project name/identifier
+- **Client**: Client company name
+- **Date**: Date of quotation (YYYY-MM-DD)
+- **SA**: System Analyst name
 
-#### **Calibration Items (1-20)**
-Complexity scores from 0-10 for each technical feature:
-- **0**: Not required
-- **1-3**: Basic implementation
-- **4-6**: Standard implementation
-- **7-9**: Advanced implementation
-- **10**: Enterprise-grade implementation
+#### **PCFa Factors (Columns E-K)**
+- **Business_Sector**: Banking_Regulated / Government / Other_unregulated / Internal_project
+- **PCFa_Business**: 1.5 / 1.3 / 1.2 / 0.8
+- **Collaboration_Type**: Time_Materials / Waterfall_fixed / Agile_sprints
+- **PCFa_Collaboration**: 1.0 / 1.3 / 0.9
+- **Service_Type**: Full_development / Development_with_specs / Consulting_only
+- **PCFa_Service**: 1.0 / 0.8 / 0.7
+- **Total_PCFa**: Product of all PCFa factors (auto-calculated)
 
-1. **User Management**: User profiles, roles, permissions
-2. **Authentication & Authorization**: Login, SSO, 2FA, OAuth
-3. **Content Management**: CMS, media handling, versioning
-4. **Notification System**: Email, SMS, push, in-app
-5. **Payment Integration**: Payment gateways, subscriptions
-6. **Analytics & Reporting**: Dashboards, reports, metrics
-7. **API Management**: REST/GraphQL, documentation, rate limiting
-8. **Multi-tenancy**: Tenant isolation, customization
-9. **Workflow Automation**: Business process automation
-10. **Search & Discovery**: Full-text search, filters, facets
-11. **File Management**: Upload, storage, processing
-12. **Admin Dashboard**: System administration interface
-13. **Data Export/Import**: Bulk operations, formats
-14. **Email Integration**: Templates, tracking, automation
-15. **Localization**: Multi-language, regional settings
-16. **Security Features**: Encryption, audit logs, compliance
-17. **Performance Optimization**: Caching, CDN, optimization
-18. **Mobile Responsiveness**: Adaptive design, PWA
-19. **Third-party Integrations**: External services, APIs
-20. **Backup & Recovery**: Data protection, disaster recovery
+#### **Calibration Categories (Columns L-AC)**
+Enter count of features for each category (0, 1, 2, 3...):
+- **CAL-STAT**: Static content pages
+- **CAL-AUTH**: Authentication systems
+- **CAL-CRUD**: Basic CRUD operations
+- **CAL-FORM**: Form handling
+- **CAL-SEARCH**: Search functionality
+- **CAL-NOTIF**: Notification systems
+- **CAL-PAY**: Payment processing
+- **CAL-DASH**: Dashboard interfaces
+- **CAL-REPORT**: Reporting features
+- **CAL-API**: API integrations
+- **CAL-FILE**: File management
+- **CAL-CHAT**: Real-time communication
+- **CAL-MAP**: Mapping features
+- **CAL-SOCIAL**: Social features
+- **CAL-MEDIA**: Media handling
+- **CAL-ECOM**: E-commerce features
+- **CAL-MULTI**: Multi-language/tenant
+- **CAL-ADMIN**: Admin panels and CMS
 
-#### **Complexity Factors**
-- **PCFa (Platform Complexity Factor)**: 
-  - 1.0 = Simple (Bubble/Webflow)
-  - 1.2 = Standard (React with standard stack)
-  - 1.5 = Complex (Microservices, multiple platforms)
-  - 2.0 = Enterprise (High-availability, distributed)
+#### **Calculated Hours (Columns AD-AL)**
+Hours after applying PCFa (auto-calculated):
+- **SA_Hours**: System Analyst hours
+- **PM_Hours**: Project Manager hours
+- **UX_Hours**: UX Designer hours
+- **FE_Hours**: Frontend Developer hours
+- **BE_Hours**: Backend Developer hours
+- **iOS_Hours**: iOS Developer hours
+- **Android_Hours**: Android Developer hours
+- **QA_Hours**: QA Engineer hours
+- **DevOps_Hours**: DevOps Engineer hours
+- **Total_Hours**: Sum of all hours
 
-- **FeFa (Feature Factor)**:
-  - 1.0 = Basic features only
-  - 1.15 = Standard feature set
-  - 1.3 = Advanced features
-  - 1.5 = Full enterprise features
+#### **Calculated Days (Columns AM-AV)**
+Days using CEILING(hours ÷ 8):
+- **SA_Days**: System Analyst days
+- **PM_Days**: Project Manager days
+- **UX_Days**: UX Designer days
+- **FE_Days**: Frontend Developer days
+- **BE_Days**: Backend Developer days
+- **iOS_Days**: iOS Developer days
+- **Android_Days**: Android Developer days
+- **QA_Days**: QA Engineer days
+- **DevOps_Days**: DevOps Engineer days
+- **Total_Days**: Sum of all days
 
-#### **Effort Estimation (Man-days)**
-- **SA Man-days**: System analysis effort
-- **PM Man-days**: Project management effort
-- **Designer Man-days**: UX/UI design effort
-- **FE Man-days**: Frontend development effort
-- **BE Man-days**: Backend development effort
-- **iOS Man-days**: iOS development effort (0 if not needed)
-- **Android Man-days**: Android development effort (0 if not needed)
-- **QA Man-days**: Quality assurance effort
+#### **Cost (Column AW)**
+- **Total_Cost_EUR**: Total_Days × €400
 
-#### **Financial Fields**
-- **Total Man-days**: Sum of all role efforts
-- **Daily Rate (EUR)**: Standard rate (typically 400)
-- **Total Cost (EUR)**: Total Man-days × Daily Rate
-- **Notes**: Additional context, assumptions, or variations
+## 📊 Baseline Hours Reference Table
 
-## 📝 Usage Instructions
+| Category | SA | PM | UX | FE | BE | iOS | Android | QA | DevOps |
+|----------|----|----|----|----|----|----|---------|-------|---------|
+| CAL-STAT | 1 | 2 | 8 | 16 | 8 | 0 | 0 | 4 | 2 |
+| CAL-AUTH | 2 | 4 | 8 | 16 | 24 | 8 | 8 | 12 | 2 |
+| CAL-CRUD | 4 | 8 | 16 | 32 | 40 | 16 | 16 | 16 | 2 |
+| CAL-FORM | 2 | 4 | 12 | 24 | 16 | 8 | 8 | 8 | 1 |
+| CAL-SEARCH | 2 | 4 | 8 | 16 | 24 | 8 | 8 | 8 | 2 |
+| CAL-NOTIF | 2 | 4 | 4 | 8 | 16 | 8 | 8 | 8 | 2 |
+| CAL-PAY | 4 | 8 | 8 | 16 | 32 | 16 | 16 | 16 | 4 |
+| CAL-DASH | 4 | 8 | 24 | 40 | 32 | 16 | 16 | 16 | 2 |
+| CAL-REPORT | 3 | 6 | 16 | 24 | 32 | 12 | 12 | 12 | 2 |
+| CAL-API | 4 | 6 | 4 | 16 | 32 | 16 | 16 | 16 | 4 |
+| CAL-FILE | 2 | 4 | 8 | 16 | 24 | 12 | 12 | 12 | 3 |
+| CAL-CHAT | 3 | 6 | 16 | 32 | 40 | 24 | 24 | 20 | 4 |
+| CAL-MAP | 2 | 4 | 12 | 24 | 20 | 16 | 16 | 12 | 2 |
+| CAL-SOCIAL | 2 | 4 | 12 | 20 | 16 | 12 | 12 | 10 | 2 |
+| CAL-MEDIA | 3 | 6 | 16 | 32 | 40 | 20 | 20 | 16 | 4 |
+| CAL-ECOM | 6 | 12 | 32 | 64 | 80 | 32 | 32 | 32 | 4 |
+| CAL-MULTI | 4 | 8 | 16 | 32 | 40 | 16 | 16 | 16 | 2 |
+| CAL-ADMIN | 4 | 8 | 24 | 40 | 32 | 0 | 0 | 16 | 2 |
 
-### **For Manual Entry**
-1. Open Zack_CSV_Template.csv in Excel or Google Sheets
-2. Fill in administrative fields
-3. Score each calibration item (0-10)
-4. Set complexity factors based on project architecture
-5. Calculate effort distribution
-6. Add notes for context
+## 📝 Calculation Process
 
-### **For AI-Generated Pre-filling**
-1. Use Zack_Preform_Prompt.md to analyze requirements
-2. Copy AI-generated scores to CSV
-3. Create two rows:
-   - Row 1: MVP version (minimum viable features)
-   - Row 2: Full version (all requested features)
-4. Validate and adjust as needed
+### **Step 1: Select Calibration Features**
+For each feature needed, increment the count in the appropriate CAL-* column.
 
-### **For Bulk Import**
-1. Prepare multiple project rows in CSV format
-2. Ensure all required fields are populated
-3. Validate data consistency
-4. Import to Google Sheets or quotation system
+### **Step 2: Calculate Base Hours**
+For each role:
+```
+Base_Hours = Σ(CAL_count × Baseline_hours_for_category)
+```
+
+### **Step 3: Apply PCFa**
+```
+Adjusted_Hours = Base_Hours × Total_PCFa
+where Total_PCFa = PCFa_Business × PCFa_Collaboration × PCFa_Service
+```
+
+### **Step 4: Convert to Days**
+```
+Days = CEILING(Adjusted_Hours ÷ 8)
+```
+
+### **Step 5: Calculate Cost**
+```
+Total_Cost = Total_Days × €400
+```
 
 ## ✅ Data Validation Rules
 
 ### **Required Fields**
-- All fields must have values (use 0 for unused features)
-- Timestamp must be valid date/time format
-- Calibration scores must be 0-10 (integers)
-- Complexity factors must be positive decimals
-- Man-days must be positive integers or 0
+- All PCFa fields must have valid selections
+- CAL-* fields must be non-negative integers (0, 1, 2, ...)
+- Date must be in YYYY-MM-DD format
+- All calculated fields must use formulas, not manual entry
 
-### **Calculation Verification**
-```
-Total Man-days = SA + PM + Designer + FE + BE + iOS + Android + QA
-Total Cost = Total Man-days × Daily Rate
+### **Formula Examples (Excel/Sheets)**
+```excel
+# Total_PCFa (K2)
+=F2*H2*J2
+
+# SA_Hours (AD2)
+=SUMPRODUCT(L2:AC2,BaselineTable[SA])*K2
+
+# SA_Days (AM2)
+=CEILING(AD2/8,1)
+
+# Total_Days (AV2)
+=SUM(AM2:AU2)
+
+# Total_Cost_EUR (AW2)
+=AV2*400
 ```
 
 ### **Logical Consistency**
-- If iOS/Android = 0, Mobile Responsiveness should still be scored for web
-- Multi-tenancy = 0 only for single-tenant applications
-- Security Features should never be 0 (minimum security always required)
-- QA effort should be proportional to development effort (typically 20-30%)
+- Mobile-only projects should have 0 for web-specific features
+- iOS/Android hours should be 0 for web-only projects
+- DevOps hours should reflect infrastructure complexity
+- QA hours should be proportional to development effort
 
-## 🔄 Template Maintenance
+## 🔄 Common Scenarios
 
-### **Version Control**
-- Template version should match Zack tool version
-- Update when new calibration items added
-- Archive old versions for historical quotations
-
-### **Customization Guidelines**
-- Do not modify column headers (breaks import)
-- Can add columns after "Notes" for internal use
-- Can modify daily rate based on market/client
-- Can adjust complexity factor ranges with approval
-
-## 📊 Example Entries
-
-### **MVP SaaS Platform**
-```csv
-"2025/5/24 10:00:00","TechStart Inc","Customer Portal MVP","Sarah Chen",5,3,6,2,0,3,4,0,2,1,3,8,1,2,0,5,2,8,3,0,1.2,1.0,8,5,10,30,25,0,0,15,93,400,37200,"MVP - Core features only, no mobile apps"
-```
+### **MVP Web Application**
+- Business: Other_unregulated (1.2x)
+- Collaboration: Agile_sprints (0.9x)
+- Service: Development_with_specs (0.8x)
+- Features: CAL-STAT(1), CAL-AUTH(1), CAL-CRUD(2), CAL-FORM(1), CAL-DASH(1), CAL-ADMIN(1)
 
 ### **Enterprise Platform**
-```csv
-"2025/5/24 14:30:00","GlobalCorp Ltd","Enterprise Platform","John Smith",10,10,10,8,8,10,10,10,10,8,10,10,8,8,5,10,8,10,10,8,2.0,1.5,40,25,35,120,100,45,45,50,460,400,184000,"Full enterprise solution with mobile apps"
-```
+- Business: Banking_Regulated (1.5x)
+- Collaboration: Waterfall_fixed (1.3x)
+- Service: Full_development (1.0x)
+- Features: All CAL-* categories with multiple instances
+
+### **No-Code/Low-Code Project**
+- Apply platform-specific FeFa multiplier (0.7-0.8x) as additional factor
+- Reduce DevOps allocation
+- Focus on configuration rather than development hours
 
 ## 🚨 Important Notes
 
-1. **Google Forms Compatibility**: Column headers must match exactly for import
-2. **CSV Encoding**: Use UTF-8 encoding to preserve special characters
-3. **Decimal Separator**: Use period (.) not comma for decimals
-4. **Date Format**: Follow Google Forms timestamp format
-5. **Quoting**: Text fields with commas must be quoted
+1. **UP-ROUNDING**: Always use CEILING function for day conversion
+2. **NO BUFFER**: €400/day is the final rate - do not add any buffer
+3. **ALL ROLES**: Include all 9 roles even if some have 0 hours
+4. **PCFa MULTIPLICATION**: Multiply all factors together, don't add
+5. **BASELINE REFERENCE**: Always use official calibration table hours
 
 ---
 **Classification: ZETOS-CONFIDENTIAL ▲**  
 **Document Control: Store in encrypted Google Drive with ACL**  
-**Related Documents**: Zack_Preform_Prompt.md, Zack Quotation Methodology
+**Related Documents**: Zack_Methodology_Prompt.md, Calibration Table, Feature Matrix

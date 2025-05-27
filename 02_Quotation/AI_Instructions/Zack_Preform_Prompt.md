@@ -1,10 +1,11 @@
 # Zack_Preform_Prompt - AI Analysis Template
 **Classification: ZETOS-CONFIDENTIAL ▲**  
 **Created: 2025-05-24**  
-**Version: 1.0**
+**Updated: 2025-05-28**  
+**Version: 2.0**
 
 ## 📋 Overview
-AI prompt template for System Analysts to analyze customer requirements and generate pre-filled Zack quotation form recommendations. This template ensures consistent, thorough analysis that maps customer needs to technical implementation requirements.
+AI prompt template for System Analysts to analyze customer requirements and generate pre-filled Zack quotation form recommendations. This template ensures consistent, thorough analysis that maps customer needs to technical implementation requirements using the Zack Quotation Methodology.
 
 ## 🎯 Purpose
 Transform raw customer requirements into structured technical feature selections that can be directly input into the Zack quotation tool, reducing analysis time while maintaining accuracy.
@@ -17,10 +18,11 @@ You are an expert System Analyst at Zetos Development Studio, specializing in te
 
 IMPORTANT CONTEXT:
 - Zetos builds web applications, mobile apps, and no-code solutions
-- Standard team: SA, PM, UX Designer, Frontend, Backend, iOS, Android, QA, DevOps
-- Technology stack: React/Vue/Angular, Node.js/Python/Java, AWS, MySQL
-- Alternative platforms: Bubble, Webflow for faster development
-- All projects follow standardized Zetos development processes
+- Standard team: SA, PM, UX, FE, BE, iOS, Android, QA, DevOps (9 roles)
+- Zack Methodology: Feature-based calibration with 18 pre-defined categories
+- Baseline hours by role, adjusted by complexity multipliers (PCFa)
+- Hours convert to days with UP-ROUNDING (e.g., 17h → 3 days)
+- Standard rate: €400/day for all roles (no buffer added)
 ```
 
 ### **Analysis Instructions**
@@ -29,15 +31,36 @@ Please analyze the provided customer requirements and generate technical feature
 
 ANALYSIS FRAMEWORK:
 1. Extract core business objectives and success criteria
-2. Identify all user roles and their specific needs
-3. Map functional requirements to technical implementations
-4. Determine complexity factors based on business sector and requirements
-5. Recommend minimum viable product (MVP) vs full-featured approaches
-6. Consider integration requirements and technical constraints
-7. Assess risk factors that may impact development effort
+2. Map requirements to Zack calibration categories (CAL-STAT, CAL-AUTH, etc.)
+3. Identify applicable Project Complexity Factors (PCFa)
+4. Determine Feature Factors (FeFa) for individual features
+5. Calculate baseline hours using calibration table
+6. Apply complexity multipliers to adjust estimates
+7. Convert hours to days using UP-ROUNDING rule
+8. Recommend MVP vs full-featured approaches
+
+ZACK CALIBRATION CATEGORIES (18 Total):
+- CAL-STAT: Static content pages (About, FAQ, Terms)
+- CAL-AUTH: Authentication systems (Login, registration, password reset)
+- CAL-CRUD: Basic CRUD operations (Create, Read, Update, Delete)
+- CAL-FORM: Form handling (Contact forms, multi-step forms)
+- CAL-SEARCH: Search functionality (Basic, advanced, filtered)
+- CAL-NOTIF: Notification systems (Email, SMS, push)
+- CAL-PAY: Payment processing (Checkout, subscriptions)
+- CAL-DASH: Dashboard interfaces (Analytics, user dashboards)
+- CAL-REPORT: Reporting features (Generate, export reports)
+- CAL-API: API integrations (Third-party services)
+- CAL-FILE: File management (Upload, storage, processing)
+- CAL-CHAT: Real-time communication (Chat, messaging)
+- CAL-MAP: Mapping features (Location services, maps)
+- CAL-SOCIAL: Social features (Sharing, comments, likes)
+- CAL-MEDIA: Media handling (Video, audio streaming)
+- CAL-ECOM: E-commerce features (Cart, inventory)
+- CAL-MULTI: Multi-language/tenant features
+- CAL-ADMIN: Admin panels and CMS
 
 OUTPUT FORMAT:
-Provide your analysis in the structured format specified below, with clear rationale for each recommendation.
+Provide your analysis mapping requirements to calibration categories with complexity factors.
 ```
 
 ### **Customer Requirements Input Section**
@@ -72,159 +95,152 @@ Based on the customer requirements provided, here is my technical analysis and Z
 
 ## 📊 PROJECT OVERVIEW ANALYSIS
 
-**Business Sector Complexity Factor:**
-- Sector: [Fintech/Medtech/Retail/ERP/etc.]
-- Complexity Multiplier: [1.0-1.5x] 
-- Rationale: [Why this multiplier is appropriate]
+**Business Sector Complexity Factor (PCFa):**
+- Sector: [Select from list below]
+  - Banking/Regulated: 1.5x
+  - Government: 1.3x
+  - Other unregulated business: 1.2x (includes non-profits)
+  - Internal project: 0.8x
+- Selected Multiplier: [exact value]
+- Rationale: [Why this sector classification applies]
 
 **Collaboration Type Factor:**
-- Type: [Regular client/Strategic partner/Business partner/Equity holding]
-- Complexity Multiplier: [0.7-1.1x]
+- Type: [Time & Materials/Waterfall fixed price/Agile sprints]
+- Complexity Multiplier: [1.0x/1.3x/0.9x]
 - Rationale: [Relationship impact on project complexity]
 
 **Service Type Factor:**
-- Service: [Development with Specifications/MVP/Scale/Consulting]
-- Complexity Multiplier: [0.8-1.5x]
+- Service: [Full development/Development with specs/Consulting only]
+- Complexity Multiplier: [1.0x/0.8x/0.7x]
 - Rationale: [How service type affects effort]
 
-**Business Model Factor:**
-- Model: [SaaS/Marketplace/Transaction/etc.]
-- Complexity Multiplier: [1.0-1.5x]
-- Rationale: [Business model complexity impact]
+**Total PCFa Calculation:**
+PCFa = Business Sector × Collaboration × Service Type
+Example: 1.2 × 0.9 × 0.8 = 0.864
 
 ## 🎯 PRODUCT SCOPE RECOMMENDATIONS
 
 **Platform Recommendations:**
-- Primary Platform: [Website/WebApp/PWA/Mobile App/Back Office]
+- Primary Platform: [Mobile iOS/Android/Web Application/Desktop/Cross-platform]
+- Platform Multiplier: [1.0x/0.9x/1.1x/1.2x]
 - Reasoning: [Why this platform best serves the requirements]
 
-**Responsive Design Requirements:**
-- Customer Facing: [Yes/No for iPhone SE, iPad Mini, Desktop]
-- Back Office: [Yes/No for Desktop]
-- Rationale: [User behavior and access patterns]
+**No-Code/Low-Code Consideration:**
+- Platform: [Webflow/WordPress/Shopify/Other Low-code/Not Applicable]
+- Multiplier: [0.8x/0.8x/0.8x/0.7x/N/A]
+- Rationale: [If applicable, why no-code fits or doesn't fit]
 
-**Technology Stack Recommendations:**
-
-*Frontend:*
-- Recommended: [Webflow/Bubble/React/Angular/Vue/Next.js/etc.]
-- Complexity Factor: [0.7-1.2x]
-- Rationale: [Why this technology fits the requirements]
-
-*Backend:*
-- Recommended: [PHP/Node.js/Python/Java/etc.]
-- Complexity Factor: [1.0-1.5x]
-- Rationale: [Technical requirements and team expertise]
-
-*Cloud Service:*
-- Recommended: [AWS/Azure/Google Cloud/On-Premise]
-- Complexity Factor: [0.9-1.15x]
-- Rationale: [Infrastructure requirements and constraints]
-
-*Database:*
-- RDS: [MySQL/PostgreSQL/SQL Server/Oracle/Not Applicable]
-- NoSQL: [MongoDB/Firebase/DynamoDB/Not Applicable]
-- Complexity Factor: [1.0-2.0x]
-- Rationale: [Data requirements and volume]
-
-## 🔧 FEATURE ANALYSIS & MAPPING
+## 🔧 FEATURE ANALYSIS & CALIBRATION MAPPING
 
 **Authentication & User Management:**
 - Required Features: [List specific auth features needed]
-- Zack Selections: [Map to specific Zack form options]
-- Effort Factor: [Complexity multiplier]
+- Calibration Category: CAL-AUTH
+- Base Hours (from calibration table): [Look up actual hours by role]
+- Feature Factor (FeFa): [1.0 for standard, higher for complex]
+- Justification: [Why this complexity level]
 
-**Core Business Features:**
-- Feature Category: [e.g., E-commerce, CRM, Project Management]
-- Required Functions: [List specific business functions]
-- Zack Selections: [Map to Zack form options]
-- Effort Factor: [Complexity multiplier]
+**Admin Dashboard:**
+- Required Features: [List admin panel requirements]
+- Calibration Category: CAL-ADMIN
+- Base Hours (from calibration table): [Look up actual hours by role]
+- Feature Factor (FeFa): [1.0-2.0 based on complexity]
+- Justification: [Complexity rationale]
 
 **Data Management:**
-- Requirements: [Data types, volume, processing needs]
-- Zack Selections: [Database and data handling options]
-- Effort Factor: [Complexity multiplier]
+- Required Features: [CRUD operations needed]
+- Calibration Category: CAL-CRUD
+- Base Hours (from calibration table): [Look up actual hours by role]
+- Feature Factor (FeFa): [Complexity multiplier]
+- Justification: [Data complexity reasoning]
 
-**Integration Requirements:**
-- Third-party APIs: [List required integrations]
-- File Systems: [Upload/download requirements]
-- Zack Selections: [Integration complexity options]
-- Effort Factor: [Complexity multiplier]
+**Payment Processing:**
+- Required Features: [Payment gateway, subscription management]
+- Calibration Category: CAL-PAY
+- Base Hours (from calibration table): [Look up actual hours by role]
+- Feature Factor (FeFa): [1.0-1.5 based on payment complexity]
+- Justification: [Payment integration complexity]
 
-**UI/UX Requirements:**
-- Design Complexity: [Simple/Medium/Complex]
-- Custom Components: [Required custom elements]
-- Zack Selections: [UI complexity options]
-- Effort Factor: [Complexity multiplier]
-
-**Performance & Scalability:**
-- Expected Users: [Concurrent user requirements]
-- Performance Needs: [Response time, throughput]
-- Zack Selections: [Performance optimization options]
-- Effort Factor: [Complexity multiplier]
+[Continue mapping all identified features to calibration categories]
 
 ## 📋 MINIMUM VS MAXIMUM SCOPE
 
 **MVP (Minimum Viable Product) Recommendations:**
-- Core Features Only: [List essential features for launch]
-- Technology: [Simplest viable technology stack]
-- Timeline: [Fastest delivery approach]
-- Estimated Effort Reduction: [% reduction from full scope]
+- Core Features Only: [List essential CAL-* categories]
+- Total Base Hours: [Sum of hours before multipliers]
+- With PCFa Applied: [Hours × PCFa]
+- Total Days: [CEILING(hours ÷ 8) by role]
+- MVP Investment: €[Total days × 400]
 
-**Maximum Scope Recommendations:**
-- Full Feature Set: [All requested and suggested features]
-- Advanced Technology: [Best-in-class technology choices]
-- Premium Features: [Additional value-add features]
-- Estimated Effort Increase: [% increase from MVP]
+**Full Scope Recommendations:**
+- All Features: [List all CAL-* categories]
+- Total Base Hours: [Sum of hours before multipliers]
+- With PCFa Applied: [Hours × PCFa]
+- Total Days: [CEILING(hours ÷ 8) by role]
+- Full Investment: €[Total days × 400]
 
 ## ⚠️ RISK FACTORS & CONSIDERATIONS
 
 **Technical Risks:**
 - [List potential technical challenges]
 - Mitigation: [How to address each risk]
-- Effort Impact: [Additional complexity factors]
+- Effort Impact: [Additional FeFa multiplier if needed]
 
 **Integration Risks:**
 - [List integration challenges]
 - Mitigation: [Risk mitigation strategies]
-- Effort Impact: [Additional time/complexity]
+- Effort Impact: [Additional complexity considerations]
 
-**Business Risks:**
-- [List business or requirement risks]
-- Mitigation: [How to address uncertainties]
-- Effort Impact: [Potential scope changes]
+## 🎯 ZACK CALCULATION SUMMARY
 
-## 🎯 ZACK FORM FILLING RECOMMENDATIONS
+**Selected Calibration Categories:**
+1. CAL-[TYPE]: [Description] - Base hours: [hours by role]
+2. CAL-[TYPE]: [Description] - Base hours: [hours by role]
+3. [Continue for all selected categories]
 
-**High Priority Selections (Definitely Include):**
-- [List Zack form options that should definitely be selected]
-- Rationale: [Why these are essential]
+**Complexity Factors:**
+- Business Sector PCFa: [value]
+- Collaboration Type PCFa: [value]
+- Service Type PCFa: [value]
+- Platform FeFa: [value if applicable]
+- Total Multiplier: [product of all factors]
 
-**Medium Priority Selections (Consider for Full Scope):**
-- [List optional but valuable features]
-- Rationale: [When to include these features]
+**Final Calculation:**
+1. Total Base Hours by Role:
+   - SA: [sum] hours
+   - PM: [sum] hours
+   - UX: [sum] hours
+   - FE: [sum] hours
+   - BE: [sum] hours
+   - iOS: [sum] hours
+   - Android: [sum] hours
+   - QA: [sum] hours
+   - DevOps: [sum] hours
 
-**Low Priority Selections (Future Phase):**
-- [List features that could be deferred]
-- Rationale: [Why these can wait]
+2. After PCFa Application: [hours × total multiplier]
 
-**Complexity Factors Summary:**
-- Global Project Multiplier: [Final calculated multiplier]
-- Key Driving Factors: [Main complexity contributors]
-- Effort Distribution: [Expected % by role: SA, PM, UX, FE, BE, etc.]
+3. Days Conversion (UP-ROUNDED):
+   - SA: [CEILING(hours ÷ 8)] days
+   - PM: [CEILING(hours ÷ 8)] days
+   [Continue for all roles]
+
+4. Total Investment: €[sum of all days × 400]
 
 ## 💡 ADDITIONAL RECOMMENDATIONS
 
-**Alternative Approaches:**
-- [Suggest alternative technical approaches]
-- [Cost/time trade-offs to consider]
+**Phasing Approach:**
+- Phase 1: [Core CAL-* categories for MVP]
+- Phase 2: [Additional features for enhancement]
+- Phase 3: [Future considerations]
 
-**Future Considerations:**
-- [Features that might be needed in future phases]
-- [Scalability considerations for growth]
+**Technology Recommendations:**
+- [Specific technology stack recommendations]
+- [Integration approach suggestions]
+- [Performance optimization considerations]
 
 **Client Communication Points:**
-- [Key points to discuss with client for clarification]
-- [Assumptions that need validation]
+- [Key assumptions that need validation]
+- [Clarifications needed on requirements]
+- [Trade-offs to discuss with client]
 ```
 
 ## 📝 Usage Instructions for System Analysts
@@ -242,64 +258,39 @@ Based on the customer requirements provided, here is my technical analysis and Z
 4. Review the generated analysis for completeness
 
 ### **Step 3: Validation & Refinement**
-1. **Review Technical Accuracy**: Verify all technology recommendations are appropriate
-2. **Check Business Alignment**: Ensure recommendations match customer objectives
-3. **Validate Complexity Factors**: Confirm multipliers are realistic for the project
-4. **Assess Completeness**: Identify any missing requirements or considerations
+1. **Verify Calibration Mapping**: Ensure features map to correct CAL-* categories
+2. **Check PCFa Calculations**: Confirm multipliers match Zack methodology
+3. **Validate Hours**: Cross-reference with calibration table baseline hours
+4. **Review Up-Rounding**: Ensure CEILING function is applied correctly
 
 ### **Step 4: Zack Form Preparation**
-1. Use the AI recommendations to pre-fill Zack quotation form
+1. Use the AI recommendations to prepare Zack inputs
 2. Create both MVP and full-scope versions
-3. Document any deviations from AI recommendations
-4. Prepare rationale for SA validation discussion
+3. Document calculation methodology
+4. Prepare for client presentation
 
 ## ✅ Quality Validation Checklist
 
-### **Business Analysis Quality**
-- [ ] Business sector and model correctly identified
-- [ ] All user roles and their needs captured
-- [ ] Core vs optional features clearly distinguished
-- [ ] Success criteria mapped to technical requirements
+### **Methodology Compliance**
+- [ ] All features mapped to 18 calibration categories
+- [ ] PCFa factors correctly identified and multiplied
+- [ ] Baseline hours from official calibration table
+- [ ] UP-ROUNDING (CEILING) applied to day conversion
+- [ ] €400/day rate with NO buffer
 
-### **Technical Analysis Quality**
-- [ ] Technology recommendations align with requirements
-- [ ] Complexity factors are realistic and justified
-- [ ] Integration requirements fully analyzed
-- [ ] Performance and scalability considerations included
+### **Completeness Check**
+- [ ] All 9 roles included in calculations
+- [ ] MVP and full scope options provided
+- [ ] Risk factors identified and assessed
+- [ ] Technology recommendations included
 
-### **Risk Assessment Quality**
-- [ ] Technical risks identified and assessed
-- [ ] Integration challenges considered
-- [ ] Timeline and budget risks evaluated
-- [ ] Mitigation strategies provided
-
-### **Output Quality**
-- [ ] All sections of template completed
-- [ ] Recommendations are actionable
-- [ ] Rationale provided for all major decisions
-- [ ] MVP vs full scope clearly differentiated
-
-## 🔄 Continuous Improvement
-
-### **Feedback Collection**
-- Track accuracy of AI recommendations vs actual project outcomes
-- Document common analysis gaps or errors
-- Collect SA feedback on prompt effectiveness
-- Monitor Zack quotation accuracy improvements
-
-### **Prompt Refinement**
-- Update prompt based on new Zack features or categories
-- Incorporate lessons learned from completed projects
-- Adjust complexity factors based on historical data
-- Enhance industry-specific analysis capabilities
-
-### **Quality Metrics**
-- **Analysis Accuracy**: % of AI recommendations that align with final project scope
-- **Time Savings**: Reduction in requirement analysis time
-- **Quotation Accuracy**: Improvement in Zack quotation precision
-- **SA Satisfaction**: Feedback scores on prompt usefulness
+### **Calculation Accuracy**
+- [ ] PCFa calculation: Business × Collaboration × Service
+- [ ] Hours to days: CEILING(hours ÷ 8)
+- [ ] Total cost: Days × €400
+- [ ] All arithmetic verified
 
 ---
 **Classification: ZETOS-CONFIDENTIAL ▲**  
 **Document Control: Store in encrypted Google Drive with ACL**  
-**Review Schedule: Monthly updates based on project feedback and Zack tool evolution**
+**Review Schedule: Monthly updates based on Zack methodology evolution**

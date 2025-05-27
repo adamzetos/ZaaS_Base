@@ -1,110 +1,136 @@
-# 02_Quotation - Quotation Phase / 报价阶段
+# 02_Quotation - Project Quotation Phase / 项目报价阶段
 **Classification: ZETOS-CONFIDENTIAL ▲**
 
 ## 📋 English Version
 
 ### Purpose
-This directory contains all quotation-related deliverables including technical analysis, pricing calculations, and formal quotes for client approval.
+This directory contains all quotation-related documents using the Zack Quotation Methodology - a sophisticated feature-based calibration system that ensures accurate, consistent project estimation.
 
 ### Directory Structure
 ```
 02_Quotation/
 ├── AI_Instructions/      # AI prompts for quotation automation
+│   ├── Zack_Preform_Prompt.md    # Technical analysis & calibration
+│   ├── Zara_Quote_Prompt.md      # Business module translation
+│   └── Official_Quote_Prompt.md  # Professional quote generation
 ├── Project_Templates/    # Quote templates and calculators
-├── Technical_Analysis/   # Technical feasibility and effort estimation
-├── Functional_Analysis/  # Module breakdown and specifications
-├── Pricing/             # Cost calculations and pricing models
+│   ├── Zack_CSV_Template.csv     # Calibration-based calculator
+│   ├── Zack_CSV_Template_Guide.md # CSV usage instructions
+│   └── ZaaS_Quote_Template.html  # Professional HTML template
+├── Technical_Analysis/   # Zack tool outputs - technical modules & man-days
+├── Functional_Analysis/  # Zara tool outputs - business modules & pricing
+├── Pricing/             # Cost calculations using €400/day (no buffer)
 └── Quotes/              # Final quotations for clients
 ```
 
+### Zack Methodology Overview
+The Zack system uses:
+- **18 Calibration Categories** (CAL-STAT, CAL-AUTH, etc.)
+- **9 Development Roles** (SA, PM, UX, FE, BE, iOS, Android, QA, DevOps)
+- **Feature-Based Estimation** with pre-defined baseline hours
+- **Complexity Multipliers** (PCFa) for business context
+- **Standard Rate**: €400/day with NO buffer
+- **Up-Rounding Rule**: Hours ÷ 8 rounded UP to full days
+
 ### Key Deliverables
-- ✅ Technical analysis document
-- ✅ Functional module breakdown
-- ✅ Effort estimation spreadsheet
-- ✅ Resource allocation plan
-- ✅ Pricing calculation sheet
-- ✅ Risk assessment
-- ✅ Final quotation document
-- ✅ Terms and conditions
+- ✅ Feature calibration mapping
+- ✅ Role-based effort allocation
+- ✅ Man-days estimation with up-rounding
+- ✅ Business module categorization
+- ✅ Core vs optional module separation
+- ✅ Customer-facing quotation document
+- ✅ Transparent pricing breakdown
 
-### Quotation Process
-1. **Technical Analysis** - Assess feasibility and complexity
-2. **Functional Breakdown** - Define modules and features
-3. **Effort Estimation** - Calculate development hours
-4. **Pricing Calculation** - Apply rates and margins
-5. **Quote Generation** - Create professional quotation
-6. **Client Review** - Present and negotiate
-7. **Approval** - Get sign-off to proceed
+### Workflow
+1. **Feature Mapping**
+   - Map project features to 18 CAL-* categories
+   - Apply Feature Factors (FeFa) for complexity
+   
+2. **Technical Analysis (Zack)**
+   - Calculate baseline hours per role
+   - Apply PCFa multipliers
+   - Convert hours to days (CEILING)
+   - Generate technical quotation
+   
+3. **Functional Analysis (Zara)**
+   - Convert technical modules to business modules
+   - Create customer-perspective pricing
+   - Separate core and optional features
 
-### AI Tools Available
-- **Zack_Preform_Prompt**: Technical effort estimation
-- **Zara_Quote_Prompt**: Professional quote generation
-- **Official_Quote_Prompt**: Formal quotation formatting
-
-### Usage Guidelines
-1. All documents follow naming: `[CLIENT]_02_[TYPE]_[DESC]_v[VERSION]_[DATE].[EXT]`
-2. Use Zack CSV template for effort calculations
-3. Apply standard margins per company policy
-4. Include all assumptions and exclusions
-5. Valid for 30 days unless specified
+4. **Professional Quotation**
+   - Use Official_Quote_Prompt for executive formatting
+   - Include Zack calculation transparency
+   - Present investment options with ROI
 
 ### Responsible Roles
-- **Primary**: System Analyst (SA)
-- **Pricing**: Sales Team
+- **Primary**: SA + Sales Team
+- **Validation**: Client + Sales
 - **Review**: Project Manager (PM)
-- **Approval**: Client decision makers
 
 ---
 
 ## 📋 中文版本
 
 ### 目的
-本目录包含所有报价相关交付物，包括技术分析、定价计算和客户批准的正式报价。
+本目录包含使用 Zack 报价方法的所有报价相关文档 - 这是一个复杂的基于功能的校准系统，确保准确、一致的项目估算。
 
 ### 目录结构
 ```
 02_Quotation/
 ├── AI_Instructions/      # 报价自动化的AI提示
+│   ├── Zack_Preform_Prompt.md    # 技术分析和校准
+│   ├── Zara_Quote_Prompt.md      # 业务模块转换
+│   └── Official_Quote_Prompt.md  # 专业报价生成
 ├── Project_Templates/    # 报价模板和计算器
-├── Technical_Analysis/   # 技术可行性和工作量估算
-├── Functional_Analysis/  # 模块分解和规格说明
-├── Pricing/             # 成本计算和定价模型
+│   ├── Zack_CSV_Template.csv     # 基于校准的计算器
+│   ├── Zack_CSV_Template_Guide.md # CSV使用说明
+│   └── ZaaS_Quote_Template.html  # 专业HTML模板
+├── Technical_Analysis/   # Zack工具输出 - 技术模块和人天
+├── Functional_Analysis/  # Zara工具输出 - 业务模块和定价
+├── Pricing/             # 使用€400/天的成本计算（无缓冲）
 └── Quotes/              # 客户的最终报价
 ```
 
+### Zack方法概述
+Zack系统使用：
+- **18个校准类别**（CAL-STAT、CAL-AUTH等）
+- **9个开发角色**（SA、PM、UX、FE、BE、iOS、Android、QA、DevOps）
+- **基于功能的估算**，具有预定义的基准小时数
+- **复杂性乘数**（PCFa）用于业务上下文
+- **标准费率**：€400/天，无缓冲
+- **向上舍入规则**：小时÷8向上舍入到整天
+
 ### 主要交付物
-- ✅ 技术分析文档
-- ✅ 功能模块分解
-- ✅ 工作量估算表
-- ✅ 资源分配计划
-- ✅ 定价计算表
-- ✅ 风险评估
-- ✅ 最终报价文档
-- ✅ 条款和条件
+- ✅ 功能校准映射
+- ✅ 基于角色的工作量分配
+- ✅ 带向上舍入的人天估算
+- ✅ 业务模块分类
+- ✅ 核心与可选模块分离
+- ✅ 面向客户的报价文档
+- ✅ 透明的定价细分
 
-### 报价流程
-1. **技术分析** - 评估可行性和复杂性
-2. **功能分解** - 定义模块和功能
-3. **工作量估算** - 计算开发时间
-4. **定价计算** - 应用费率和利润
-5. **报价生成** - 创建专业报价
-6. **客户审查** - 展示和协商
-7. **批准** - 获得签字批准继续
+### 工作流程
+1. **功能映射**
+   - 将项目功能映射到18个CAL-*类别
+   - 应用功能因子（FeFa）以获得复杂性
+   
+2. **技术分析（Zack）**
+   - 计算每个角色的基准小时数
+   - 应用PCFa乘数
+   - 将小时转换为天（CEILING）
+   - 生成技术报价
+   
+3. **功能分析（Zara）**
+   - 将技术模块转换为业务模块
+   - 创建客户视角定价
+   - 分离核心和可选功能
 
-### 可用AI工具
-- **Zack_Preform_Prompt**: 技术工作量估算
-- **Zara_Quote_Prompt**: 专业报价生成
-- **Official_Quote_Prompt**: 正式报价格式化
-
-### 使用指南
-1. 所有文档遵循命名：`[客户代码]_02_[类型]_[描述]_v[版本]_[日期].[扩展名]`
-2. 使用Zack CSV模板进行工作量计算
-3. 根据公司政策应用标准利润率
-4. 包含所有假设和排除事项
-5. 除非另有说明，有效期为30天
+4. **专业报价**
+   - 使用Official_Quote_Prompt进行高管格式化
+   - 包括Zack计算透明度
+   - 展示投资选项和投资回报率
 
 ### 负责角色
-- **主要负责**: 系统分析师 (SA)
-- **定价**: 销售团队
+- **主要负责**: SA + 销售团队
+- **验证**: 客户 + 销售
 - **审核**: 项目经理 (PM)
-- **批准**: 客户决策者
